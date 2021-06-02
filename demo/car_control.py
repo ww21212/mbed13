@@ -22,10 +22,16 @@ def get():
         k2 = inkey()
         k3 = inkey()
         if k3=='A':
-            print ("up")
+            time.sleep(2)
+            print ("go straight forward then backward")
             s.write("/goStraightCalib/run 8 \n".encode())
+            time.sleep(3)
+            s.write("/goStraightCalib/run -8 \n".encode())
         if k3=='B':
-            print ("down")
+            time.sleep(2)
+            print ("go straight backward then forward")
+            s.write("/goStraightCalib/run 8 \n".encode())
+            time.sleep(3)
             s.write("/goStraightCalib/run -8 \n".encode())
         if k3=='C':
             print ("right")
@@ -33,7 +39,7 @@ def get():
         if k3=='D':
             print ("left")
             s.write("/turn/run 100 0.3 \n".encode())
-        time.sleep(8)
+        time.sleep(3)
         s.write("/stop/run \n".encode())
     elif k=='q':
         print ("quit")
